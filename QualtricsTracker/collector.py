@@ -79,7 +79,6 @@ def ingest():
         print(f"[collector] {action} {len(items)} rows for {rid}", flush=True)
 
     if overwrite and not events_by_id and response_hint:
-        # No items but request asked for overwrite; create/clear file with header only.
         path = os.path.join(SAVE_DIR, f"{response_hint}.csv")
         with open(path, "w", newline="", encoding="utf-8") as f:
             csv.writer(f).writerow(HEADER)
